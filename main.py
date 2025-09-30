@@ -45,7 +45,7 @@ def main():
                 sys.exit()
             for shot in shots:
                 if thing.collide(shot):
-                    thing.kill()
+                    thing.split()
                     shot.kill()
         pygame.Surface.fill(screen,(0,0,0))
         for thing in drawable:
