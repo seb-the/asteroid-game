@@ -3,6 +3,8 @@
 # throughout this file
 import pygame
 
+import sys
+
 from constants import *
 
 from circleshape import *
@@ -33,6 +35,10 @@ def main():
                 return
         dt = clock.tick(60) / 1000.0
         updatable.update(dt)
+        for thing in asteroids:
+            if thing.collide(player):
+                print("Game over!")
+                sys.exit()
         pygame.Surface.fill(screen,(0,0,0))
         for thing in drawable:
             thing.draw(screen)
