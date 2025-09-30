@@ -43,6 +43,10 @@ def main():
             if thing.collide(player):
                 print("Game over!")
                 sys.exit()
+            for shot in shots:
+                if thing.collide(shot):
+                    thing.kill()
+                    shot.kill()
         pygame.Surface.fill(screen,(0,0,0))
         for thing in drawable:
             thing.draw(screen)
